@@ -52,9 +52,9 @@ def create_container_job(project_id: str, region: str, job_name: str, env_dict: 
     instances = batch_v1.AllocationPolicy.InstancePolicyOrTemplate()
     instances.policy = policy
     network_if = batch_v1.AllocationPolicy.NetworkInterface()
-    network_if.network = "projects/shared-network-370014/global/networks/prod-vpc-shared"
-    network_if.subnetwork = "projects/shared-network-370014/regions/us-central1/subnetworks/prod-vpc-shared"
-    network_if.no_external_ip_address = True
+    network_if.network = "projects/shared-network-370014/global/networks/prod-vpc-shared" #Change this to reflect your network
+    network_if.subnetwork = "projects/shared-network-370014/regions/us-central1/subnetworks/prod-vpc-shared" #Change this to reflect your subnetwork
+    network_if.no_external_ip_address = True #Set this to False if you're ok with public IP addresses
     network = batch_v1.AllocationPolicy.NetworkPolicy()
     network.network_interfaces = [network_if]
     allocation_policy = batch_v1.AllocationPolicy()
